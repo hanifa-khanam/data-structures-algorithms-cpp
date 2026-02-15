@@ -12,29 +12,29 @@ int main() {
     cout << endl;
 
     // statically allocated memory i.e at compile time the memory is allocated
-    int lst[5];
-    int n = sizeof(lst) / sizeof(int);
+    int arr_static[5];
+    int n = sizeof(arr_static) / sizeof(int);
     for(int i=0; i<n; i++) {
         cout << "Enter number: "; 
-        cin >> lst[i];
+        cin >> arr_static[i];
     }
     for(int i=0; i<n; i++) {
-        cout << lst[i] << " ";
+        cout << arr_static[i] << " ";
     }
     cout << endl;
     cout << "\n* * * * * * * *" <<  endl;
     cout << endl;
 
     // Dynamically allocated memory at runtime i.e taking the size of array from the user at run time and allocating the size at runtime
-    int lenofarr;
+    int len_of_arr;
     cout << "Enter size of array: ";
-    cin >> lenofarr;
-    int marks[lenofarr];
-    for(int i=0; i<lenofarr; i++) {
+    cin >> len_of_arr;
+    int marks[len_of_arr];
+    for(int i=0; i<len_of_arr; i++) {
         cout << "Enter " << i << " number: ";
         cin >> marks[i];
     }
-    for(int i=0; i<lenofarr; i++) {
+    for(int i=0; i<len_of_arr; i++) {
         cout << marks[i] << " ";
     }
     cout << endl;

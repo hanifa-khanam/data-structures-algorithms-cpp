@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+// arrays are passed by reference
 void modify(int marks[]) {
     marks[0] = 99;
 }
@@ -11,9 +12,11 @@ void printArr(int lst[], int n) {
     }
     cout << endl;
 }
+
+
 int main() {
     int arr[3] = {1, 3, 5};
-    modify(arr);
+    modify(arr);  // passing array name is equivalent to passing pointer
     cout << arr[0] << endl;
 
     int lst[] = {2, 5, 6, 4};

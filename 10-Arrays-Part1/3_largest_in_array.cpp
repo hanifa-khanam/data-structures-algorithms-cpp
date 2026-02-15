@@ -3,7 +3,9 @@ using namespace std;
 
 int main() {
     int arr[5] = {1, 4, 7, 9, 67};
+    // intializing maximum number 
     int max = arr[0];
+    // intializing mininum number
     int min = arr[0];
 
     int n = sizeof(arr) / sizeof(int);

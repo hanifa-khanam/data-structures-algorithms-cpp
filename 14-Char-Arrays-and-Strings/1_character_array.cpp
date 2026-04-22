@@ -9,5 +9,7 @@ int main() {
     cout << arr[3] << endl;
     cout << arr[4] << endl;
 
+    cout << arr << endl;
+
     return 0;
 }

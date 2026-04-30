@@ -12,7 +12,6 @@ public:
     }
 
     ~Node() {
-        cout << "~Node " << data << endl;
         if(next != NULL) {
             delete next;
             next = NULL;
@@ -31,7 +30,6 @@ public:
     }
 
     ~List() {
-        cout << "~List\n";
         if(head != NULL) {
             delete head;
             head = NULL;
@@ -94,11 +92,11 @@ public:
 
         // traverse to second last node
         Node* temp = head;
-        while(temp->next->next != tail){
+        while(temp->next->next != NULL){
             temp = temp->next;
         }
     
-        temp->next = NULL;
+        temp->next = NULL; 
         delete tail;
         tail = temp;
     }
@@ -133,6 +131,35 @@ public:
         }
     }
 
+    int searchItr(int key) {
+        Node* temp = head;
+        int idx = 0;
+         
+        while(temp != NULL) {
+            if(temp->data == key) {
+                return idx;
+            }
+            temp = temp->next;
+            idx++;
+        }
+        return -1;
+    }
+
+    void reverse() {
+        Node* curr = head;
+        Node* prev = NULL;
+
+        while(curr != NULL) {
+            Node* next = curr->next;
+            curr->next = prev;
+
+            // updations for next itr
+            prev = curr;
+            curr = next;
+        }
+        head = prev;
+    }
+
     void printList() {
         Node* temp = head;
 
@@ -165,6 +192,11 @@ int main() {
     ll.printList();
 
     ll.insert(100, 2);
+    ll.printList();
+
+    cout << ll.searchItr(3) << endl;
+
+    ll.reverse();
     ll.printList();
 
     return 0;

@@ -10,13 +10,6 @@ public:
         data = val;
         next = NULL;
     }
-
-    ~Node() {
-        if(next != NULL) {
-            delete next;
-            next = NULL;
-        }
-    }
 };
 
 class List {
@@ -61,8 +54,21 @@ public:
 
     void removeNth(int n) {
         int size = getSize();
-        Node* prev = head;
 
+        if(n > size || n <= 0) {
+            cout << "Invalid n\n";
+            return;
+        }
+
+        // delete head
+        if(n == size) {
+            Node* temp = head;
+            head = head->next;
+            delete temp;
+            return;
+        }
+
+        Node* prev = head;
         for(int i=0; i<(size-n-1); i++) {
             prev = prev->next;
         }
@@ -98,7 +104,11 @@ int main() {
 
     ll.printList();
 
-    ll.removeNth(2);
+    int n;
+    cout << "Enter number of node: ";
+    cin >> n;
+    ll.removeNth(n);
+    cout << "After removing " << n << " node: \n";
     ll.printList();
 
     return 0;
